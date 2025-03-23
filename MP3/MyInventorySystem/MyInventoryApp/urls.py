@@ -16,10 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import home_redirect, view_supplier
+from .views import home_redirect, view_supplier, view_bottles, add_bottle
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", home_redirect, name="home"),
     path('view_supplier/', view_supplier, name='view_supplier'),
+    path('view_bottles/', view_bottles, name='view_bottles'),
+    path("add_bottle/", add_bottle, name="add_bottle")
 ]
