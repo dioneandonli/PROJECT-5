@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add Water Bottle</h2>
+<form>
+    <label for="sku">SKU:</label>
+    <input type="text" id="sku" name="sku" ><br><br>
+
+    <label for="brand">Brand:</label>
+    <input type="text" id="brand" name="brand" ><br><br>
+
+    <label for="cost">Cost:</label>
+    <input type="number" id="cost" name="cost"><br><br>
+
+    <label for="size">Size:</label>
+    <input type="text" id="size" name="size" ><br><br>
+
+    <label for="mouth_size">Mouth Size:</label>
+    <input type="text" id="mouth_size" name="mouth_size" ><br><br>
+
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color"><br><br>
+
+    <label for="supplier">Supplier:</label>
+    <select id="supplier" name="supplier">
+        {% for supplier in suppliers %}
+        <option value="{{ supplier.id }}">{{ supplier.name }}</option>
+        {% endfor %}
+    </select><br><br>
+    <!-- <p>Suppliers: {{ suppliers }}</p> for checking  -->
+
+    <label for="current_qty">Current Quantity:</label>
+    <input type="number" id="current_qty" name="current_qty"><br><br>
+
+    <button type="submit">Add Bottle</button>
+</form>
+{% endblock %}
