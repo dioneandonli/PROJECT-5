@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Water Bottles{% endblock %}
+
+{% block content %}
+<style>
+     table {
+            border-collapse: collapse;
+			width: 50%;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #343a40;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+</style>
+<div class="container">
+    <h2> Water Bottles Inventory</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>SKU</th>
+                    <th>Brand</th>
+                    <th>Size</th>
+                    <th>Mouth Size</th>
+                    <th>Color</th>
+                    <th>Supplier</th>
+                    <th>Cost</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bottle in bottles %}
+                <tr>
+                    <td>{{ bottle.sku }}</td>
+                    <td>{{ bottle.brand }}</td>
+                    <td>{{ bottle.size }}</td>
+                    <td>{{ bottle.mouth_size }}</td>
+                    <td>{{ bottle.color }}</td>
+                    <td>{{ bottle.supplied_by.name }} - {{bottle.supplied_by.city}},{{bottle.supplied_by.country}} </td>
+                    <td>₱{{ bottle.cost }}</td>
+                    <td>{{ bottle.current_qty }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
