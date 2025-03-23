@@ -1,17 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-</head>
-<body>
-    <div class="container">
-        {% block content %}
-        <!-- THE TEMPLATESSSS -->
-        {% endblock %}
-    </div>
+{% load static %}
 
-</body>
+<html>
+    <head>
+        <title>MyInventorySystem</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+        <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static '/bootstrap/css/custom.css' %}">
+
+        <script src="{% static '/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    </head>
+    <style>
+
+ .container {
+    flex: 1;
+    padding-bottom: 50px; 
+}
+
+.footer {
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+    color: white;
+}
+    </style>
+
+    <body>
+        <nav class="navbar navbar-dark bg-custom mb-3 sticky-top" style="background-color: #590404;">
+            <div class="container-fluid">
+                <a class="navbar-brand mb-0" href="{% url 'view_supplier' %}">MyInventorySystem</a>
+                <a href="{% url 'add_bottle' %}" style="color:white">
+                    <i class="material-icons">add</i>
+                </a>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>  
+        <footer class="footer bg-custom" style="background-color: #590404;">
+            2025 MyInventorySystem
+       </footer>
+    </body>
 </html>
